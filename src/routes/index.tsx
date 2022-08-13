@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -12,7 +12,15 @@ const RootStack = createNativeStackNavigator();
 const MainStack = createNativeStackNavigator();
 
 const MainRouting = () => {
-  const {state} = useContext(AuthContext);
+  const {state, restore} = useContext(AuthContext);
+
+  const restoreUser = useCallback(() => restore(), [restore]);
+  useEffect(() => {
+    restoreUser();
+  }, [restoreUser]);
+  if (state.isLoading) {
+    return null;
+  }
   return (
     <MainStack.Navigator screenOptions={{headerShown: false}}>
       {state.isLoggedIn ? (

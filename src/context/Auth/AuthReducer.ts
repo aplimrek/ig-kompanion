@@ -7,6 +7,7 @@ const AuthReducer = (prevState: AuthState, action: AuthAction) => {
       return {
         ...prevState,
         isLoggedIn: true,
+        isLoading: false,
       };
     case Actions.Logout:
       return {

@@ -5,3 +5,6 @@ export const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
 export const NAV_REF = createNavigationContainerRef();
 export const IS_IOS = Platform.OS === 'ios';
+export const KEYCHAIN_OPTIONS = {
+  service: 'com.ig.kompanion.auth',
+};

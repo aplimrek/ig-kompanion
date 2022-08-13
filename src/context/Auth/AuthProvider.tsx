@@ -6,12 +6,20 @@ import {AuthReducer} from './AuthReducer';
 
 const AuthProvider = ({children}: {children: JSX.Element}) => {
   const [state, dispatch] = useReducer(AuthReducer, initialState);
-  const {createUser, removeUser} = useKeychain();
+  const {createUser, removeUser, getUser} = useKeychain();
   const context = useMemo(
     () => ({
+      restore: async () => {
+        let credentials = await getUser();
+        if (credentials) {
+          dispatch({
+            type: Actions.Login,
+          });
+        }
+      },
       login: async (username: string, password: string) => {
         // await createUser(username, password);
-        await createUser('alp', 'imrek');
+        await createUser(username, password);
         dispatch({
           type: Actions.Login,
         });
@@ -23,7 +31,7 @@ const AuthProvider = ({children}: {children: JSX.Element}) => {
         });
       },
     }),
-    [createUser, removeUser],
+    [getUser, createUser, removeUser],
   );
   return (
     <AuthContext.Provider value={{...context, state}}>

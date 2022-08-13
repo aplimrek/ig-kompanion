@@ -14,9 +14,9 @@ const DummyPosts: IPost[] = [
       {
         id: '1',
         thumbnail:
-          'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=10',
+          'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13',
         original:
-          'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=10',
+          'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=13',
       },
       {
         id: '2',
