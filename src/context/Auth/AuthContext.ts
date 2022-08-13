@@ -7,12 +7,12 @@ export const initialState = {
 
 type AuthContextType = {
   state: InitialAuthStateType;
-  login: () => any;
-  logout: () => any;
+  login: (username: string, password: string) => Promise<any>;
+  logout: () => Promise<any>;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   state: initialState,
-  login: () => null,
-  logout: () => null,
+  login: async () => null,
+  logout: async () => null,
 });
