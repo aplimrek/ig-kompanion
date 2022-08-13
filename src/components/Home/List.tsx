@@ -28,14 +28,14 @@ const DummyPosts: IPost[] = [
     ],
     user: {id: '1', profile_picture: '', username: 'alpimrek'},
   },
-  //   {
-  //     id: '2',
-  //     type: 'video',
-  //     video: 'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4',
-  //     description: 'descriptive info about post',
-  //     images: ['', ''],
-  //     user: {id: '1', profile_picture: '', username: 'alpimrek'},
-  //   },
+  {
+    id: '2',
+    type: 'video',
+    video: 'https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4',
+    description: 'descriptive info about post',
+    images: [],
+    user: {id: '1', profile_picture: '', username: 'alpimrek'},
+  },
   {
     id: '3',
     type: 'image',

@@ -3010,7 +3010,7 @@
   "resolved" "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz"
   "version" "2.0.0"
 
-"deprecated-react-native-prop-types@^2.3.0":
+"deprecated-react-native-prop-types@^2.2.0", "deprecated-react-native-prop-types@^2.3.0":
   "integrity" "sha512-pWD0voFtNYxrVqvBMYf5gq3NA2GCpfodS1yNynTPc93AYA/KEMGeWDqqeUB6R2Z9ZofVhks2aeJXiuQqKNpesA=="
   "resolved" "https://registry.npmjs.org/deprecated-react-native-prop-types/-/deprecated-react-native-prop-types-2.3.0.tgz"
   "version" "2.3.0"
@@ -3072,7 +3072,7 @@
   "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.217.tgz"
   "version" "1.4.217"
 
-"eme-encryption-scheme-polyfill@^2.0.1":
+"eme-encryption-scheme-polyfill@^2.0.3":
   "integrity" "sha512-njD17wcUrbqCj0ArpLu5zWXtaiupHb/2fIUQGdInf83GlI+Q6mmqaPGLdrke4savKAu15J/z1Tg/ivDgl14g0g=="
   "resolved" "https://registry.npmjs.org/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.1.1.tgz"
   "version" "2.1.1"
@@ -6320,14 +6320,15 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native-video@^5.2.0":
-  "integrity" "sha512-5SK1lxyzrCkZF+WuxUxLR1Pt65E0rsWB1w1GrGxSLdC9zWYBumcmuHl+wPJ7UQvznjaH2Ze7uU1R3arejI7+WQ=="
-  "resolved" "https://registry.npmjs.org/react-native-video/-/react-native-video-5.2.0.tgz"
-  "version" "5.2.0"
+"react-native-video@6.0.0-alpha.1":
+  "integrity" "sha512-uY4rct/aMXPBCFejZqACWPI8V0Q0gqcCg1tv8UFXdSjnRW122U0HkRFw1wMnOT+YQM+SYCm5HG90/5fykSMdig=="
+  "resolved" "https://registry.npmjs.org/react-native-video/-/react-native-video-6.0.0-alpha.1.tgz"
+  "version" "6.0.0-alpha.1"
   dependencies:
+    "deprecated-react-native-prop-types" "^2.2.0"
     "keymirror" "^0.1.1"
     "prop-types" "^15.7.2"
-    "shaka-player" "^2.5.9"
+    "shaka-player" "^3.3.2"
 
 "react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.69 || 1000.0.0", "react-native@>=0.60.0", "react-native@0.69.4":
   "integrity" "sha512-rqNMialM/T4pHRKWqTIpOxA65B/9kUjtnepxwJqvsdCeMP9Q2YdSx4VASFR9RoEFYcPRU41yGf6EKrChNfns3g=="
@@ -6817,12 +6818,12 @@
   "resolved" "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz"
   "version" "1.2.0"
 
-"shaka-player@^2.5.9":
-  "integrity" "sha512-3MC9k0OXJGw8AZ4n/ZNCZS2yDxx+3as5KgH6Tx4Q5TRboTBBCu6dYPI5vp1DxKeyU12MBN1Zcbs7AKzXv2EnCg=="
-  "resolved" "https://registry.npmjs.org/shaka-player/-/shaka-player-2.5.23.tgz"
-  "version" "2.5.23"
+"shaka-player@^3.3.2":
+  "integrity" "sha512-chO0cJ5iy57tqD0Ks8OcaSYaiabN+6P1Z4aDfgevczfqLeUs2u5GF0xkkreUfbPAmTmEPAsuZQ3POvyB0D++Yg=="
+  "resolved" "https://registry.npmjs.org/shaka-player/-/shaka-player-3.3.8.tgz"
+  "version" "3.3.8"
   dependencies:
-    "eme-encryption-scheme-polyfill" "^2.0.1"
+    "eme-encryption-scheme-polyfill" "^2.0.3"
 
 "shallow-clone@^3.0.0":
   "integrity" "sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA=="
