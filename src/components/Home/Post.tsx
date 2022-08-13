@@ -1,25 +1,34 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {IPost, IUser} from '../../@types/post';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {Spacer} from '../Common';
-import {Colors} from '../../config/Styles';
+import {IPost} from '../../@types/post';
+import {SCREEN_WIDTH} from '../../config';
+// import Video from 'react-native-video';
+import {Footer, Header} from './';
+import {_Images} from './_Post';
 
-const Header = ({username}: IUser) => {
-  return (
-    <View style={styles.header}>
-      <View style={styles.profilePicture} />
-      <Text style={styles.username}>{username}</Text>
-      <Spacer />
-      <Icon name="ellipsis-h" size={15} />
-    </View>
-  );
-};
+// const VideoItem = ({video}: {video: string}) => {
+//   return (
+//     <Video
+//       source={{
+//         uri: video,
+//       }}
+//       style={styles.video}
+//       controls={false}
+//       resizeMode="contain"
+//       posterResizeMode="cover"
+//     />
+//   );
+// };
 
-const Post = ({user}: IPost) => {
+const Post = ({user, type, images}: IPost) => {
   return (
     <View style={styles.container}>
       <Header {...user} />
+      {type === 'image' ? (
+        <_Images images={images} />
+      ) : // <VideoItem video={video} />
+      null}
+      <Footer />
     </View>
   );
 };
@@ -28,20 +37,8 @@ export default Post;
 
 const styles = StyleSheet.create({
   container: {},
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 8,
-  },
-  username: {
-    marginLeft: 8,
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  profilePicture: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: Colors.DARK_PURPLE,
+
+  video: {
+    width: SCREEN_WIDTH,
   },
 });

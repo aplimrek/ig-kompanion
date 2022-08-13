@@ -7,8 +7,15 @@ interface IUser {
 export interface IPost {
   id: string;
   user: IUser;
-  images: string[];
+  images: IImage[];
   video: string;
   type: 'video' | 'image';
   description: string;
+  ratio?: number;
+}
+
+export interface IImage {
+  id: string;
+  thumbnail: string;
+  original: string;
 }
