@@ -14,6 +14,11 @@ const AuthReducer = (prevState: AuthState, action: AuthAction) => {
         ...prevState,
         isLoggedIn: false,
       };
+    case Actions.Restore:
+      return {
+        ...prevState,
+        isLoading: false,
+      };
   }
 };
 

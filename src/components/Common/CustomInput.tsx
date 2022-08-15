@@ -1,7 +1,7 @@
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput, TextInputProps} from 'react-native';
 import React from 'react';
 import {Colors} from '../../config/Styles';
-const CustomInput = (props: any) => {
+const CustomInput = (props: TextInputProps) => {
   return <TextInput {...props} style={[styles.textInput]} />;
 };
 

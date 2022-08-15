@@ -15,6 +15,10 @@ const AuthProvider = ({children}: {children: JSX.Element}) => {
           dispatch({
             type: Actions.Login,
           });
+        } else {
+          dispatch({
+            type: Actions.Restore,
+          });
         }
       },
       login: async (username: string, password: string) => {

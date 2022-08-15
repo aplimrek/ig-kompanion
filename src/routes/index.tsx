@@ -14,7 +14,8 @@ const MainStack = createNativeStackNavigator();
 const MainRouting = () => {
   const {state, restore} = useContext(AuthContext);
 
-  const restoreUser = useCallback(() => restore(), [restore]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const restoreUser = useCallback(() => restore(), []);
   useEffect(() => {
     restoreUser();
   }, [restoreUser]);

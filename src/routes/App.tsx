@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen, SearchScreen} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -8,6 +8,8 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Colors} from '../config';
+import useKeychain from '../hooks/useKeychain';
+import {AuthContext} from '../context/Auth/AuthContext';
 
 const getTabBarIcon = ({route, props}: ITabIcon) => {
   let iconName = 'home';
@@ -29,6 +31,20 @@ const getTabBarIcon = ({route, props}: ITabIcon) => {
 };
 
 const TabsRouting = () => {
+  const {getUser} = useKeychain();
+  const {logout} = useContext(AuthContext);
+  const [username, setUsername] = useState('');
+
+  const loadUser = useCallback(async () => {
+    const credentials = await getUser();
+    if (credentials) {
+      setUsername(credentials.username);
+    }
+  }, [getUser]);
+
+  useEffect(() => {
+    loadUser();
+  }, [loadUser]);
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -36,8 +52,25 @@ const TabsRouting = () => {
         tabBarInactiveTintColor: Colors.LIGHT_GRAY,
         tabBarShowLabel: false,
         tabBarIcon: props => getTabBarIcon({route, props}),
+        headerTitleAlign: 'left',
+        headerTintColor: Colors.DARK_PURPLE,
+        headerRight: () => (
+          <Icon
+            name="sign-out"
+            size={24}
+            color={Colors.DARK_PURPLE}
+            style={{marginRight: 10}}
+            onPress={() => {
+              logout();
+            }}
+          />
+        ),
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{title: `Hey, ${username}`}}
+      />
       <Tab.Screen name="Search" component={SearchScreen} />
     </Tab.Navigator>
   );
