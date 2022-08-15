@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Grid} from '../components/Search';
+import {Grid} from '~components/Search';
 
 const SearchScreen = () => {
   return (

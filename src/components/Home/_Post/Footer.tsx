@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import React from 'react';
-import {ChildWrapper, Spacer} from '../../Common';
+import {ChildWrapper, Spacer} from '~components/Common';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Footer = () => {

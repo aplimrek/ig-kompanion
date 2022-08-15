@@ -2,11 +2,10 @@ import React, {useCallback, useContext, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {NAV_REF} from '../config/Constants';
-import AppRouting from './App';
-import OnboardingRouting from './Onboarding';
-import AuthProvider from '../context/Auth/AuthProvider';
-import {AuthContext} from '../context/Auth/AuthContext';
+import {NAV_REF} from '~config';
+import AppRouting from '~routes/App';
+import OnboardingRouting from '~routes/Onboarding';
+import {AuthContext, AuthProvider} from '~context/Auth';
 
 const RootStack = createNativeStackNavigator();
 const MainStack = createNativeStackNavigator();

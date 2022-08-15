@@ -1,8 +1,8 @@
 import {FlatList, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-import {IPost} from '../../@types/post';
-import {Post} from '.';
-import {SCREEN_WIDTH} from '../../config/Constants';
+import {IPost} from '~@types/post';
+import {Post} from '~components/Home';
+import {SCREEN_WIDTH} from '~config';
 
 const DummyPosts: IPost[] = [
   {

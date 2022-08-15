@@ -1,6 +1,6 @@
 import {ImageProps, ImageSourcePropType, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {AutoHeightImage} from '.';
+import {AutoHeightImage} from '~components/Common';
 import {BlurView} from '@react-native-community/blur';
 
 interface ProgressiveImageProps extends ImageProps {

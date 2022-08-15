@@ -1,5 +1,5 @@
 import {CommonActions} from '@react-navigation/native';
-import {NAV_REF} from '../config/Constants';
+import {NAV_REF} from '~config';
 
 const useRouting = () => {
   const navigate = (screen: never, params: never) => {

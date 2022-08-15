@@ -1,4 +1,4 @@
-import {Actions} from './AuthActions';
+import {Actions} from '~context/Auth';
 
 type AuthState = {
   isLoggedIn: boolean;

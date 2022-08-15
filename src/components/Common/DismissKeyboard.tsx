@@ -5,7 +5,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
 } from 'react-native';
-import {IS_IOS} from '../../config/Constants';
+import {IS_IOS} from '~config';
 
 const DismissKeyboard = ({children}: {children: JSX.Element}) => {
   return (

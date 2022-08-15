@@ -1,5 +1,5 @@
 import {createContext} from 'react';
-import {InitialAuthStateType} from './AuthTypes';
+import {InitialAuthStateType} from '~context/Auth';
 
 export const initialState = {
   isLoading: true,

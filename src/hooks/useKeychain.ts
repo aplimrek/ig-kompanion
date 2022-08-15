@@ -1,5 +1,5 @@
 import * as Keychain from 'react-native-keychain';
-import {KEYCHAIN_OPTIONS} from '../config';
+import {KEYCHAIN_OPTIONS} from '~config';
 
 // const OPTIONS: Keychain.Options = {
 //   service: 'com.ig.kompanionapp.auth',

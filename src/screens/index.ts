@@ -1,3 +1,3 @@
-export {default as HomeScreen} from './Home';
-export {default as LoginScreen} from './Login';
-export {default as SearchScreen} from './Search';
+export {default as HomeScreen} from '~screens/Home';
+export {default as LoginScreen} from '~screens/Login';
+export {default as SearchScreen} from '~screens/Search';

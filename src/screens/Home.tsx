@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {List} from '../components/Home';
+import {List} from '~components/Home';
 
 const HomeScreen = () => {
   return (

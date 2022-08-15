@@ -1,9 +1,9 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {IUser} from '../../../@types/post';
-import {Spacer} from '../../Common';
+import {IUser} from '~@types/post';
+import {Spacer} from '~components/Common';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Colors} from '../../../config';
+import {Colors} from '~config';
 
 const Header = ({username}: IUser) => {
   return (

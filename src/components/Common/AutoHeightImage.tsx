@@ -1,6 +1,6 @@
 import {ImageProps, StyleSheet} from 'react-native';
 import React, {memo, useState} from 'react';
-import {SCREEN_WIDTH} from '../../config';
+import {SCREEN_WIDTH} from '~config';
 import FastImage from 'react-native-fast-image';
 const AutoHeightImage = memo(({style, ...props}: ImageProps) => {
   const [state, setstate] = useState(200);

@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import Routing from './src/routes';
+import Routing from '~routes';
 
 const App = () => {
   return <Routing />;

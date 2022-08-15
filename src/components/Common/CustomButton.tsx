@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Colors} from '../../config/Styles';
+import {Colors} from '~config';
 const CustomButton = (props: any) => {
   return (
     <TouchableOpacity {...props} style={[styles.button, props.style]}>

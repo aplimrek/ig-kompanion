@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import React, {useRef, useState} from 'react';
 import Video from 'react-native-video';
-import {SCREEN_WIDTH} from '../../../config';
+import {SCREEN_WIDTH} from '~config';
 
 const _Video = ({video}: {video: string}) => {
   let ref = useRef(null);

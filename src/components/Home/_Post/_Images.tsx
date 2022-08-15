@@ -1,7 +1,7 @@
 import {FlatList} from 'react-native';
 import React from 'react';
-import ProgressiveImage from '../../Common/ProgressiveImage';
-import {IImage} from '../../../@types/post';
+import {ProgressiveImage} from '~components/Common';
+import {IImage} from '~@types/post';
 
 const _Images = ({images}: {images: IImage[]}) => {
   return (

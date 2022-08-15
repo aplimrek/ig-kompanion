@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {SCREEN_WIDTH} from '../../config/Constants';
+import {SCREEN_WIDTH} from '~config';
 const PaddingContainer = ({
   children,
 }: {

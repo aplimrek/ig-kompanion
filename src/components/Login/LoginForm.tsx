@@ -5,9 +5,9 @@ import {
   PaddingContainer,
   CustomButton,
   DismissKeyboard,
-} from '../Common';
-import {AuthContext} from '../../context/Auth/AuthContext';
-const LOGO = require('../../assets/icons/logo.png');
+} from '~components/Common';
+import {AuthContext} from '~context/Auth';
+const LOGO = require('~assets/icons/logo.png');
 const LoginForm = () => {
   const {login} = useContext(AuthContext);
   const [username, setUsername] = useState('');

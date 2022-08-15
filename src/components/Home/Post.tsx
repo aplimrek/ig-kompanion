@@ -1,8 +1,8 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {IPost} from '../../@types/post';
-import {Footer, Header} from './';
-import {_Images, _Video} from './_Post';
+import {IPost} from '~@types/post';
+import {Footer, Header} from '~components/Home';
+import {_Images, _Video} from '~components/Home/_Post';
 
 const Post = ({user, type, images, video}: IPost) => {
   return (

@@ -1,11 +1,7 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useCallback} from 'react';
 import axios, {AxiosRequestConfig, AxiosError} from 'axios';
 
-interface ApiProps {
-  config: AxiosRequestConfig<any>;
-}
-
-const useApi = <T>({config}: ApiProps) => {
+const useApi = <T>() => {
   const [response, setResponse] = useState<T | undefined>(undefined);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

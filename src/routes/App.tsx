@@ -1,15 +1,15 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen, SearchScreen} from '../screens';
+import {HomeScreen, SearchScreen} from '~screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {ITabIcon} from '../@types/tab';
+import {ITabIcon} from '~@types/tab';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {Colors} from '~config';
+import {useKeychain} from '~hooks';
+import {AuthContext} from '~context/Auth';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {Colors} from '../config';
-import useKeychain from '../hooks/useKeychain';
-import {AuthContext} from '../context/Auth/AuthContext';
 
 const getTabBarIcon = ({route, props}: ITabIcon) => {
   let iconName = 'home';

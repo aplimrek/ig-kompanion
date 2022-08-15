@@ -1,26 +1,10 @@
-import {
-  FlatList,
-  NativeScrollEvent,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
-import React, {useCallback, useEffect, useState} from 'react';
-import {SCREEN_WIDTH} from '../../config';
-import useApi from '../../hooks/useApi';
-import {GridResponseData, IRow} from '../../@types/grid';
+import {FlatList, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SCREEN_WIDTH} from '~config';
+import {useApi} from '~hooks';
+import {GridResponseData, IRow} from '~@types/grid';
 import * as _ from 'lodash';
-import {Footer, Header, Row} from '.';
-
-const isEndReached = ({
-  contentOffset,
-  contentSize,
-  layoutMeasurement,
-}: NativeScrollEvent): boolean => {
-  const PADDING = 20;
-  return (
-    layoutMeasurement.height + contentOffset.y >= contentSize.height - PADDING
-  );
-};
+import {Footer, Header, Row} from '~components/Search';
 
 const Grid = () => {
   const [page, setPage] = useState(1);
@@ -30,9 +14,9 @@ const Grid = () => {
       url: `search/${page}`,
     },
   };
-  const {response, fetchData, loading} = useApi<GridResponseData>(CONFIG);
-
+  const {response, fetchData, loading} = useApi<GridResponseData>();
   const [data, setData] = useState<IRow[]>([]);
+  const [extraData, setExtraData] = useState<IRow[]>([]);
 
   useEffect(() => {
     if (!loading) {
@@ -52,55 +36,38 @@ const Grid = () => {
           videoPosition: index % 2 === 0 ? 'right' : 'left',
         });
       });
-      setData([...data, ..._data]);
+      setExtraData(_data);
+      setData(prev => [...prev, ..._data]);
     }
   }, [response]);
 
-  // const memoizedData: IRow[] = useMemo(() => {
-  //   if (!data) {
-  //     return [];
-  //   }
-  //   //Split data into chunks of 4 image
-
-  //   console.log(memoizedData);
-  //   if (memoizedData) {
-  //     return;
-  //   } else {
-  //     return _data;
-  //   }
-  // }, [data]);
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  const getItemLayout = (_, index: number) => ({
+    length: (SCREEN_WIDTH / 3) * 2,
+    offset: (SCREEN_WIDTH / 3) * 2 * index,
+    index,
+  });
 
   return (
     <FlatList
       data={data}
-      contentContainerStyle={{flexGrow: 1}}
+      contentContainerStyle={{}}
       style={styles.scrollView}
       onEndReachedThreshold={0.2}
       onEndReached={() => {
         setPage(page + 1);
       }}
-      scrollEventThrottle={16}
+      getItemLayout={getItemLayout}
+      scrollEventThrottle={100}
       keyExtractor={item => item.id}
       renderItem={({item, index}) => <Row key={`${index}`} {...item} />}
       ListHeaderComponent={<Header />}
       ListFooterComponent={loading ? <Footer /> : null}
-      removeClippedSubviews
+      removeClippedSubviews={true}
+      windowSize={3}
+      refreshing={loading}
+      extraData={extraData}
     />
-    // <ScrollView
-    //   style={styles.scrollView}
-    //   scrollEventThrottle={400}
-
-    //   onScroll={evt => {
-    //     if (isEndReached(evt.nativeEvent)) {
-    //       fetchData(CONFIG.config);
-    //     }
-    //   }}>
-    //   <Header />
-    //   {data.map((row, index) => (
-    //     <Row key={`${index}`} {...row} />
-    //   ))}
-    //   {loading && <Footer />}
-    // </ScrollView>
   );
 };
 
@@ -109,5 +76,6 @@ export default Grid;
 const styles = StyleSheet.create({
   scrollView: {
     width: SCREEN_WIDTH,
+    flex: 1,
   },
 });

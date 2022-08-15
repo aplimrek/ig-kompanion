@@ -1,9 +1,9 @@
 import {StyleSheet, View} from 'react-native';
 import React, {memo, useRef} from 'react';
-import {IRow} from '../../@types/grid';
+import {IRow} from '~@types/grid';
 import FastImage from 'react-native-fast-image';
 import Video from 'react-native-video';
-import {Colors, SCREEN_WIDTH} from '../../config';
+import {Colors, SCREEN_WIDTH} from '~config';
 
 const Row = ({videoPosition, images, video}: IRow) => {
   const ref = useRef(null);
