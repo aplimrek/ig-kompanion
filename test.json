@@ -1,0 +1,120 @@
+[
+  {
+    "type": "image",
+    "video": "",
+    "images": [
+      {
+        "id": "1",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=13"
+      },
+      {
+        "id": "2",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=11",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=11"
+      }
+    ],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "1"
+  },
+  {
+    "type": "image",
+    "video": "",
+    "images": [
+      {
+        "id": "3",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=13"
+      },
+      {
+        "id": "4",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=11",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=11"
+      }
+    ],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "2"
+  },
+  {
+    "type": "video",
+    "video": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4",
+    "images": [],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "3"
+  },
+  {
+    "type": "image",
+    "video": "",
+    "images": [
+      {
+        "id": "5",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=13"
+      },
+      {
+        "id": "6",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=11",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=11"
+      }
+    ],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "4"
+  },
+  {
+    "type": "video",
+    "video": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4",
+    "images": [],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "5"
+  },
+  {
+    "type": "image",
+    "video": "",
+    "images": [
+      {
+        "id": "7",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=13"
+      },
+      {
+        "id": "8",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=11",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=11"
+      }
+    ],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "6"
+  },
+  {
+    "type": "image",
+    "video": "",
+    "images": [
+      {
+        "id": "9",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=13",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-1.jpg?v=13"
+      },
+      {
+        "id": "10",
+        "thumbnail": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-thumb.jpg?v=11",
+        "original": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-image-2.jpg?v=11"
+      }
+    ],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "7"
+  },
+  {
+    "type": "video",
+    "video": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4",
+    "images": [],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "8"
+  },
+  {
+    "type": "video",
+    "video": "https://ig-kompanion.s3.us-east-2.amazonaws.com/ig-video-1.mp4",
+    "images": [],
+    "user": {"id": "1", "profile_picture": "", "username": "alpimrek"},
+    "id": "9"
+  }
+]

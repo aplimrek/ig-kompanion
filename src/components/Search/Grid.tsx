@@ -1,17 +1,12 @@
-import {
-  FlatList,
-  StyleSheet,
-  ViewabilityConfig,
-  ViewabilityConfigCallbackPair,
-  ViewToken,
-} from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import {FlatList, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {SCREEN_WIDTH} from '~config';
 import {useApi} from '~hooks';
 import {GridResponseData, IRow} from '~@types/grid';
 import * as _ from 'lodash';
 import {Footer, Header, Row} from '~components/Search';
 import {SERVICE_URLS} from '~services';
+import useViewable from '~hooks/useViewable';
 
 const Grid = () => {
   const [page, setPage] = useState(1);
@@ -22,7 +17,8 @@ const Grid = () => {
   };
   const {response, fetchData, loading} = useApi<GridResponseData>();
   const [data, setData] = useState<IRow[]>([]);
-  const [viewables, setViewables] = useState<ViewToken[]>([]);
+
+  const {viewables, viewabilityConfigCallbackPairs} = useViewable();
   useEffect(() => {
     if (!loading) {
       fetchData(CONFIG.config);
@@ -58,20 +54,6 @@ const Grid = () => {
     offset: (SCREEN_WIDTH / 3) * 2 * index,
     index,
   });
-
-  //Video can play if 50% of it is in viewport
-  const onViewableItemsChanged = (info: {
-    viewableItems: ViewToken[];
-    changed: ViewToken[];
-  }) => {
-    setViewables(info.viewableItems);
-  };
-  const viewabilityConfig: ViewabilityConfig = {
-    itemVisiblePercentThreshold: 50,
-  };
-  const viewabilityConfigCallbackPairs = useRef<
-    ViewabilityConfigCallbackPair[]
-  >([{viewabilityConfig, onViewableItemsChanged}]);
 
   return (
     <FlatList

@@ -3,7 +3,7 @@ import React, {useRef, useState} from 'react';
 import Video from 'react-native-video';
 import {SCREEN_WIDTH} from '~config';
 
-const _Video = ({video}: {video: string}) => {
+const _Video = ({video, paused}: {video: string; paused: boolean}) => {
   let ref = useRef(null);
   const [state, setstate] = useState(200);
 
@@ -21,6 +21,8 @@ const _Video = ({video}: {video: string}) => {
       controls={false}
       resizeMode="contain"
       repeat
+      poster={'https://ig-kompanion.s3.us-east-2.amazonaws.com/main-ph.jpg'}
+      paused={paused}
     />
   );
 };

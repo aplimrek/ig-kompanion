@@ -8,6 +8,7 @@ export interface IPost {
   id: string;
   user: IUser;
   images: IImage[];
+  isViewable?: boolean;
   video: string;
   type: 'video' | 'image';
   description: string;
