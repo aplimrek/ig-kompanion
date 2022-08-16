@@ -23,6 +23,7 @@ const _Video = ({video, paused}: {video: string; paused: boolean}) => {
       repeat
       poster={'https://ig-kompanion.s3.us-east-2.amazonaws.com/main-ph.jpg'}
       paused={paused}
+      posterResizeMode="cover"
     />
   );
 };

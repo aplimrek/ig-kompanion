@@ -23,6 +23,7 @@ const Row = ({videoPosition, images, video, isViewable = false}: IRow) => {
             poster={
               'https://ig-kompanion.s3.us-east-2.amazonaws.com/story-ph.jpg'
             }
+            posterResizeMode="cover"
           />
         </View>
       )}
@@ -46,6 +47,10 @@ const Row = ({videoPosition, images, video, isViewable = false}: IRow) => {
             resizeMode="cover"
             repeat
             paused={!isViewable}
+            poster={
+              'https://ig-kompanion.s3.us-east-2.amazonaws.com/story-ph.jpg'
+            }
+            posterResizeMode="cover"
           />
         </View>
       )}
