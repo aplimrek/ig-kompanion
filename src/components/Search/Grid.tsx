@@ -1,52 +1,77 @@
-import {FlatList, StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {
+  FlatList,
+  StyleSheet,
+  ViewabilityConfig,
+  ViewabilityConfigCallbackPair,
+  ViewToken,
+} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import {SCREEN_WIDTH} from '~config';
 import {useApi} from '~hooks';
 import {GridResponseData, IRow} from '~@types/grid';
 import * as _ from 'lodash';
 import {Footer, Header, Row} from '~components/Search';
+import {SERVICE_URLS} from '~services';
 
 const Grid = () => {
   const [page, setPage] = useState(1);
   const CONFIG = {
     config: {
-      baseURL: 'https://62f952f6e05644803535875c.mockapi.io/api/v1/',
-      url: `search/${page}`,
+      url: `${SERVICE_URLS.Search}/${page}`,
     },
   };
   const {response, fetchData, loading} = useApi<GridResponseData>();
   const [data, setData] = useState<IRow[]>([]);
-  const [extraData, setExtraData] = useState<IRow[]>([]);
-
+  const [viewables, setViewables] = useState<ViewToken[]>([]);
   useEffect(() => {
     if (!loading) {
       fetchData(CONFIG.config);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
     if (response) {
+      //Split images to group of for each row of grid
       let imageChunks = _.chunk(response.images, 4);
       let _data: IRow[] = [];
+      //Each row includers 4 images and 1 video
+      //Video have to change position for each row
       imageChunks.forEach((chunk, index) => {
         _data.push({
           id: `${page}-${index}`,
+          key: `${page}-${index}`,
           images: chunk,
           video: response.videos[index],
           videoPosition: index % 2 === 0 ? 'right' : 'left',
         });
       });
-      setExtraData(_data);
       setData(prev => [...prev, ..._data]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
+  //This calculation is for flatlist not to calculate the heigth of the row in each render
   // eslint-disable-next-line @typescript-eslint/no-shadow
-  const getItemLayout = (_, index: number) => ({
+  const getItemLayout = (_: any, index: number) => ({
     length: (SCREEN_WIDTH / 3) * 2,
     offset: (SCREEN_WIDTH / 3) * 2 * index,
     index,
   });
+
+  //Video can play if 50% of it is in viewport
+  const onViewableItemsChanged = (info: {
+    viewableItems: ViewToken[];
+    changed: ViewToken[];
+  }) => {
+    setViewables(info.viewableItems);
+  };
+  const viewabilityConfig: ViewabilityConfig = {
+    itemVisiblePercentThreshold: 50,
+  };
+  const viewabilityConfigCallbackPairs = useRef<
+    ViewabilityConfigCallbackPair[]
+  >([{viewabilityConfig, onViewableItemsChanged}]);
 
   return (
     <FlatList
@@ -54,19 +79,20 @@ const Grid = () => {
       contentContainerStyle={{}}
       style={styles.scrollView}
       onEndReachedThreshold={0.2}
-      onEndReached={() => {
-        setPage(page + 1);
-      }}
+      onEndReached={() => setPage(page + 1)}
       getItemLayout={getItemLayout}
-      scrollEventThrottle={100}
       keyExtractor={item => item.id}
-      renderItem={({item, index}) => <Row key={`${index}`} {...item} />}
+      renderItem={({item}) => (
+        <Row
+          {...item}
+          isViewable={viewables.findIndex(v => v.item.id === item.id) !== -1}
+        />
+      )}
       ListHeaderComponent={<Header />}
       ListFooterComponent={loading ? <Footer /> : null}
       removeClippedSubviews={true}
       windowSize={3}
-      refreshing={loading}
-      extraData={extraData}
+      viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
     />
   );
 };

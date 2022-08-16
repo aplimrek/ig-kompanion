@@ -1,7 +1,10 @@
 import {useState, useCallback} from 'react';
 import axios, {AxiosRequestConfig, AxiosError} from 'axios';
+import {BASE_URL} from '~config';
 
 const useApi = <T>() => {
+  axios.defaults.baseURL = BASE_URL;
+
   const [response, setResponse] = useState<T | undefined>(undefined);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

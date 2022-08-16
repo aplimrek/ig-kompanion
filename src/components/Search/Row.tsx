@@ -4,10 +4,8 @@ import {IRow} from '~@types/grid';
 import FastImage from 'react-native-fast-image';
 import Video from 'react-native-video';
 import {Colors, SCREEN_WIDTH} from '~config';
-
-const Row = ({videoPosition, images, video}: IRow) => {
+const Row = ({videoPosition, images, video, isViewable = false}: IRow) => {
   const ref = useRef(null);
-
   return (
     <View style={styles.row}>
       {videoPosition === 'left' && (
@@ -21,6 +19,7 @@ const Row = ({videoPosition, images, video}: IRow) => {
             controls={false}
             resizeMode="cover"
             repeat
+            paused={!isViewable}
           />
         </View>
       )}
@@ -43,6 +42,7 @@ const Row = ({videoPosition, images, video}: IRow) => {
             controls={false}
             resizeMode="cover"
             repeat
+            paused={!isViewable}
           />
         </View>
       )}

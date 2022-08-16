@@ -10,9 +10,11 @@ interface GridResponseData {
 
 export interface IRow {
   id: string;
+  key: string;
   videoPosition: 'left' | 'right';
   video: Video;
   images: Image[];
+  isViewable?: boolean;
 }
 
 interface Video {
